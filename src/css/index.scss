@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * layout
+ */
+.container {
+    max-width: calc(theme('screens.hd') + theme('spacing.24'));
+    @apply .flex;
+    @apply .flex-wrap;
+    @apply .mx-auto;
+    @apply .px-8;
+    @apply .text-left;
+
+    @screen sm {
+        @apply .px-12;
+    }
+
+}
+
+.row {
+    @apply .flex;
+    @apply .flex-1;
+    @apply .flex-wrap;
+    @apply .justify-center;
+    @apply .-mr-8;
+}
+.col {
+    @apply .pr-8;
+    @apply .relative;
+}
+
+/**
+ * debug: variables
+ */
+:root {
+    --debug-baseline: 1.5rem;
+    --debug-baseline-color: rgba(56,178,172,.25);
+    --debug-color: rgba(112,36,89,.1);
+    --debug-col-gutter: theme('spacing.8');
+    --debug-col-width: theme('width.1/4');
+    --debug-max-width: theme('screens.hd');
+    --debug-offset: theme('spacing.8');
+    --debug-z-index: 999999;
+    @screen sm {
+        --debug-offset: theme('spacing.16');
+    }
+    @screen md {
+        --debug-col-width: theme('width.1/8');
+    }
+    @screen lg {
+        --debug-col-width: theme('width.1/12');
+    }
+}
+
+/**
+ * debug: media breakpoints
+ */
+.debug::before {
+    @apply .fixed;
+    @apply .flex;
+    @apply .font-mono;
+    @apply .items-center;
+    @apply .justify-center;
+    @apply .leading-none;
+    @apply .left-0;
+    @apply .p-1;
+    @apply .pointer-events-none;
+    @apply .text-white;
+    @apply .text-xs;
+    @apply .top-0;
+    @apply .uppercase;
+    background-color: #23282d;
+    content: 'base';
+    height: 46px;
+    width: 32px;
+    z-index: var(--debug-z-index);
+@media screen and (min-width: 783px) {
+    height: 32px;
+}
+@screen xs {
+    content: 'xs';
+}
+@screen sm {
+    content: 'sm';
+}
+@screen md {
+    content: 'md';
+}
+@screen lg {
+    content: 'lg';
+}
+@screen xl {
+    content: 'xl';
+}
+@screen hd {
+    content: 'hd';
+}
+}
+
+/**
+ * debug: grid
+ */
+.debug:not(.debug-mini)::after {
+    @apply .fixed;
+    @apply .top-0;
+    @apply .block;
+    @apply .h-screen;
+    @apply .mx-auto;
+    @apply .pointer-events-none;
+    @apply .w-screen;
+    background: repeating-linear-gradient(
+            to right,
+            transparent,
+            transparent calc(var(--debug-col-gutter) / 2),
+            var(--debug-color) calc(var(--debug-col-gutter) / 2),
+            var(--debug-color) calc(var(--debug-col-width) - (var(--debug-col-gutter) / 2)),
+            transparent calc(var(--debug-col-width) - (var(--debug-col-gutter) / 2)),
+            transparent var(--debug-col-width)
+    );
+    content: '';
+    left: 50%;
+    max-width: calc(var(--debug-max-width) + (var(--debug-offset) / 2));
+    transform: translateX(-50%);
+    width: calc(100% - var(--debug-offset));
+    z-index: var(--debug-z-index);
+}
+
+/**
+ * debug: baseline
+ */
+.debug:not(.debug-mini) .debug-baseline {
+    @apply .relative;
+}
+.debug:not(.debug-mini) .debug-baseline::before {
+    @apply .absolute;
+    @apply .block;
+    @apply .h-full;
+    @apply .left-0;
+    @apply .pointer-events-none;
+    @apply .top-0;
+    @apply .w-full;
+    background: repeating-linear-gradient(
+            to bottom,
+            var(--debug-baseline-color),
+            var(--debug-baseline-color) 1px,
+            transparent 1px,
+            transparent var(--debug-baseline)
+    );
+    content: '';
+    z-index: var(--debug-z-index);
+}
+
