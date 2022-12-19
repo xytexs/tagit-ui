@@ -1,0 +1,17 @@
+.border-default {
+  &-right {
+    border-right: 1px solid rgba(230, 230, 230, 1);
+  }
+
+  &-left {
+    border-left: 1px solid rgba(230, 230, 230, 1);
+  }
+
+  &-bottom {
+    border-bottom: 1px solid rgba(230, 230, 230, 1);
+  }
+
+  &-top {
+    border-top: 1px solid rgba(230, 230, 230, 1);;;
+  }
+}
