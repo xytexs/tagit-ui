@@ -1,5 +1,5 @@
 # tagit-ui
-
+Yarn
 ## Project setup
 ```
 npm install
