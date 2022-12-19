@@ -2,7 +2,7 @@ import {FrontendApi, Configuration} from '@ory/client'
 import {handleError, mapPassword, mapCSRFToken, mapIdentifier} from '@/api/identity/utils'
 
 const conf = new Configuration({
-    basePath: "http://127.0.0.1:4000",
+    basePath: "https://auth.tagitai.com",
     baseOptions: {
         withCredentials: true,
     },
